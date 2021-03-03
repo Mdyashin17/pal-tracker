@@ -50,12 +50,7 @@ public class TimeEntryController {
     @GetMapping
     public ResponseEntity<List<TimeEntry>> list() {
         List<TimeEntry> timeEntryDataList = timeEntryRepository.list();
-
-        if (timeEntryDataList != null && timeEntryDataList.size() > 0) {
-            return new ResponseEntity<>(timeEntryDataList, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return new ResponseEntity<>(timeEntryDataList, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
